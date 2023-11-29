@@ -54,18 +54,14 @@ li {
 /* HEADER STYLES */
 /* --header */
 .main-header {
-  background-image: url('/assets/images/poster/kilyan-sockalingum-nW1n9eNHOsc-unsplash.jpg');
-  height: 95vh;
+  height: 90vh;
   max-width: 100%;
-  background-size: cover;
-  background-position: center;
   position: relative;
 }
 .main-header::after {
   content: '';
   width: 100%;
   height: 100%;
-  /* background-color: red; */
   background-image: linear-gradient(to right, rgba(23, 29, 33, 1), transparent);
   position: absolute;
   top: 0;
@@ -188,20 +184,29 @@ li {
 /* ---- */
 /* -Feature movies */
 .features-movie {
-  max-width: 30rem;
+  max-width: 40rem;
   overflow: hidden;
   position: absolute;
   z-index: 1;
-  top: 30%;
+  top: 50%;
   left: 5%;
-}
-.feature-movie {
 }
 .feature-title {
   color: #ffeee9;
   font-size: 2.4rem;
+  line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.feature-category {
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  background-color: #e64e1f;
+  color: var(--secondary-light-color);
+  padding: 0 0.8rem;
+  border-radius: 1rem;
+  text-transform: lowercase;
 }
 .feature-movie-info {
   display: flex;
@@ -215,6 +220,7 @@ li {
   border-radius: 0.6rem;
   text-transform: uppercase;
   font-weight: 600;
+  text-wrap: nowrap;
 }
 .feature-description {
   font-size: 0.9rem;
@@ -238,10 +244,9 @@ li {
   column-gap: 0.6rem;
 }
 .movie-actions button {
-  background-color: #ff5722;
   color: #ffeee9;
   padding: 0.5rem 0.8rem;
-  border: none;
+  /* border: none; */
   border-radius: 1rem;
   width: 9rem;
   text-transform: capitalize;
@@ -250,13 +255,32 @@ li {
   font-size: 1.2rem;
   font-weight: 600;
 }
+.btn-play {
+  background-color: #ff5722;
+  border: none;
+}
+.btn-play:hover {
+  background-color: transparent;
+  border: 2px solid #ff5722;
+  transition: all 300ms ease-in;
+}
+.btn-list {
+  background-color: transparent;
+  border: 2px solid #ff5722;
+  transition: all 300ms ease-in;
+}
+.btn-list:hover {
+  background-color: #ff5722;
+  border: none;
+}
 /* ------------ */
 /* Main styles */
 /* show-movies-section */
 .show-movies-section {
   max-width: 100%;
-  margin: 1rem 1rem;
+  margin: 1rem;
 }
+
 h5 {
   font-size: 1.8rem;
   color: var(--secondary-light-color);
