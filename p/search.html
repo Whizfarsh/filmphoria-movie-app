@@ -3,19 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/mediaqueries.css" />
-    <link rel="stylesheet" href="assets/css/animation.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/favicon-32x32.png"
-      type="image/x-icon"
-    />
-    <title>Filmphoria | Where stories come to life</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/mediaqueries.css" />
+    <link rel="stylesheet" href="../assets/css/search.css" />
+    <title>Search | filmphoria</title>
   </head>
   <body>
-    <header class="main-header">
-      <nav class="main-menu" id="main">
+    <header class="md-header">
+      <nav class="main-menu">
         <p class="logos">Film<span class="logo">phoria</span></p>
         <div class="menus">
           <ul class="bgs-menu">
@@ -36,7 +31,7 @@
             <div class="user-image">
               <img
                 class="user-img"
-                src="assets//images/users/farsh.jpg"
+                src="../assets//images/users/farsh.jpg"
                 alt=""
               />
             </div>
@@ -65,24 +60,10 @@
         </div>
       </div>
       <!-- --- -->
-      <div class="features-movie">
-        <div class="feature-movie"></div>
-      </div>
     </header>
-    <main>
-      <section class="show-movies-section">
-        <!-- <div class="show-movies"> -->
-        <div class="movies" id="movies">
-          <h5>Trending Movies</h5>
-          <div class="movies-containers"></div>
-          <!-- <div class="shows-containers"></div> -->
-        </div>
-        <div class="movies" id="tvshows">
-          <h5>Trending TV Shows</h5>
-          <div class="shows-containers"></div>
-        </div>
-      </section>
-    </main>
+    <section class="movie-search--section">
+      <div class="search-results"></div>
+    </section>
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-logondesign">
@@ -129,13 +110,11 @@
       </div>
     </footer>
     <script
+      defer
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script defer type="module" src="/js/script.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" defer src="/js/search.js"></script>
   </body>
 </html>

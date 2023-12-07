@@ -1,0 +1,10 @@
+@media (min-width: 801px) {
+  .mobile-menus {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .menus {
+    display: none;
+  }
+}

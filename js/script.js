@@ -2,23 +2,41 @@
 
 // API Variables
 // const imgPath = 'https://image.tmdb.org/t/p/w1280/';
-const imgPath = 'https://image.tmdb.org/t/p/original/';
-const API_Key = 'a199ea0b8c593e3eb4678128a391bff7';
+export const imgPath = 'https://image.tmdb.org/t/p/original/';
+export const API_Key = 'a199ea0b8c593e3eb4678128a391bff7';
 
-// DOM variables
-const movies = document.querySelector('.movies');
-const moviesContainer = document.querySelector('.movies-containers');
-const showsContainer = document.querySelector('.shows-containers');
-const moviesDetails = document.querySelectorAll('.movies-details');
-const movieDetails = document.querySelectorAll('.movie-details');
+// // DOM variables
+export const movies = document.querySelector('.movies');
+export const moviesContainer = document.querySelector('.movies-containers');
+export const showsContainer = document.querySelector('.shows-containers');
+export const moviesDetails = document.querySelectorAll('.movies-details');
+export const movieDetails = document.querySelectorAll('.movie-details');
+export const movieSearchForm = document.querySelectorAll('.movie-search');
+export let movieSearchInput = document.querySelectorAll('.search-input');
+const mobileSearchIcon = document.querySelector('#mobile-search-icon');
 
-let genreNames;
-let rendrGen;
+export let genreNames;
+export let rendrGen;
 
-class Movieapp {
+export class Movieapp {
   constructor() {
     this._showTrending();
     this.featuresMoviesTvs();
+    this._mobileMenuToggles();
+    // movieSearchForm.addEventListener('submit', this._movieSearched.bind(this));
+    movieSearchForm.forEach(inputElments => {
+      // console.log(inputElments.parentNode.classList.contains('hidden'));
+      // inputElments.
+      if (inputElments.parentNode.classList.contains('hidden')) return;
+      // console.log(inputElments);
+      // inputElments.addEventListener('submit', this._movieSearched.bind(this));
+      // console.log(inputElments.);
+      inputElments.addEventListener('submit', e => {
+        e.preventDefault();
+        movieSearchInput = inputElments.querySelector('.search-input');
+        this._movieSearched();
+      });
+    });
   }
   _mouseForEnter(e) {
     const theEl = e.target
@@ -32,7 +50,6 @@ class Movieapp {
     const theEl = e.target
       .closest('.movies-details')
       .querySelector('.movie-details');
-    // theEl.style.backgroundColor = '';
     theEl.style.transform = '';
     theEl.style.opacity = 0;
   }
@@ -65,15 +82,18 @@ class Movieapp {
 
       //   ------------
       const html = inputELfunction(datas);
+      if (!elementContainer) return;
       elementContainer.insertAdjacentHTML('afterbegin', html);
       this._showedMoviesHoverEffect();
     });
   }
   async _showTrendingMovies() {
-    await this._fetchWithRender(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_Key}`,
-      moviesContainer,
-      (datas, genreNames) => `<div class="movies-details">
+    try {
+      if (!moviesContainer) return;
+      await this._fetchWithRender(
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_Key}`,
+        moviesContainer,
+        (datas, genreNames) => `<div class="movies-details">
            <img
              class="movie-img"
              src="${imgPath}/${datas.poster_path}"
@@ -92,8 +112,9 @@ class Movieapp {
               </div>
             </div>
             </div>`
-    );
-    this._leftToRightScroll(moviesContainer);
+      );
+      this._leftToRightScroll(moviesContainer);
+    } catch (err) {}
   }
   async _showTrendingTvs() {
     await this._fetchWithRender(
@@ -163,7 +184,7 @@ class Movieapp {
     const featureData = await this._getTrending(
       `https://api.themoviedb.org/3/trending/all/week?api_key=${API_Key}`
     );
-    console.log(featureData);
+    // console.log(featureData);
 
     const selectRandom = Math.floor(Math.random() * featureData.results.length);
 
@@ -182,11 +203,10 @@ class Movieapp {
         ? 'title'
         : 'name';
 
+    if (!mainHeader) return;
     mainHeader.style.background = `url(
         '${imgPath}/${featureData.results[selectRandom].backdrop_path}'
         ) center/cover no-repeat`;
-
-    console.log(featureData.results[selectRandom].hasOwnProperty(releaseDate));
 
     //   render
     featureMovies.insertAdjacentHTML(
@@ -225,6 +245,7 @@ class Movieapp {
     let startX;
     let scrollLeft;
 
+    if (!containerElement) return;
     containerElement.addEventListener('touchstart', e => {
       startX = e.touches[0].pageX - containerElement.offsetLeft;
       scrollLeft = containerElement.scrollLeft;
@@ -241,10 +262,76 @@ class Movieapp {
       startX = null;
     });
   }
-}
 
+  //   // search
+  async _movieSearched() {
+    const movieSearchValue = movieSearchInput.value;
+    console.log(movieSearchValue);
+    movieSearchInput.value = '';
+
+    window.location.href = `/p/search.html?q=${encodeURIComponent(
+      movieSearchValue
+    )}`;
+  }
+
+  // show search box
+  _showSearchForm() {
+    if (!mobileSearchIcon) return;
+    mobileSearchIcon.addEventListener('click', () => {
+      document
+        .querySelector('#mobile-search-icon')
+        .closest('.ion-icon')
+        .classList.add('hidden');
+      document
+        .querySelector('#mobile-search-icon')
+        .closest('.mobile--menu')
+        .querySelector('.movie-search')
+        .classList.remove('hidden');
+    });
+  }
+  _mobileMenuToggles() {
+    document.addEventListener('click', e => {
+      // console.log(mobileSearchIcon);
+      // console.log(movieSearchInput);
+      // console.log(movieSearchForm);
+
+      const eParent = e.target.parentNode;
+      const formInputSelection = mobileSearchIcon
+        .closest('.mobile--menu')
+        .querySelector('.movie-search');
+      const searchIconSelection = document
+        .querySelector('#mobile-search-icon')
+        .closest('.ion-icon');
+      // const mobileSearch = document.querySelector('#mobile-search');
+      // const mobileSearch = document.querySelector('#ion-icon');
+      // console.log(mobileSearch);
+      console.log(e.target.classList);
+      console.log(eParent);
+      if (
+        !eParent.classList.contains('mobile--menu') &&
+        e.target.classList != 'search-input'
+      ) {
+        if (formInputSelection.classList.contains('hidden')) return;
+        formInputSelection.classList.add('hidden');
+        searchIconSelection.classList.remove('hidden');
+      }
+      if (
+        eParent.classList.contains('mobile--menu') &&
+        e.target.classList != 'search-input'
+      ) {
+        if (
+          !formInputSelection.classList.contains('hidden') &&
+          e.target.classList.contains('mb-menu')
+        ) {
+          formInputSelection.classList.add('hidden');
+          searchIconSelection.classList.remove('hidden');
+        }
+        this._showSearchForm();
+      }
+    });
+  }
+}
 const movie = new Movieapp();
-// movie.featuresMoviesTvs();
 
 // ==============
 // user profile
