@@ -1,7 +1,5 @@
 'use strict';
 
-// API Variables
-// const imgPath = 'https://image.tmdb.org/t/p/w1280/';
 export const imgPath = 'https://image.tmdb.org/t/p/original/';
 export const API_Key = 'a199ea0b8c593e3eb4678128a391bff7';
 
@@ -23,14 +21,9 @@ export class Movieapp {
     this._showTrending();
     this.featuresMoviesTvs();
     this._mobileMenuToggles();
-    // movieSearchForm.addEventListener('submit', this._movieSearched.bind(this));
+
     movieSearchForm.forEach(inputElments => {
-      // console.log(inputElments.parentNode.classList.contains('hidden'));
-      // inputElments.
       if (inputElments.parentNode.classList.contains('hidden')) return;
-      // console.log(inputElments);
-      // inputElments.addEventListener('submit', this._movieSearched.bind(this));
-      // console.log(inputElments.);
       inputElments.addEventListener('submit', e => {
         e.preventDefault();
         movieSearchInput = inputElments.querySelector('.search-input');
@@ -291,10 +284,6 @@ export class Movieapp {
   }
   _mobileMenuToggles() {
     document.addEventListener('click', e => {
-      // console.log(mobileSearchIcon);
-      // console.log(movieSearchInput);
-      // console.log(movieSearchForm);
-
       const eParent = e.target.parentNode;
       const formInputSelection = mobileSearchIcon
         .closest('.mobile--menu')
@@ -302,11 +291,6 @@ export class Movieapp {
       const searchIconSelection = document
         .querySelector('#mobile-search-icon')
         .closest('.ion-icon');
-      // const mobileSearch = document.querySelector('#mobile-search');
-      // const mobileSearch = document.querySelector('#ion-icon');
-      // console.log(mobileSearch);
-      console.log(e.target.classList);
-      console.log(eParent);
       if (
         !eParent.classList.contains('mobile--menu') &&
         e.target.classList != 'search-input'

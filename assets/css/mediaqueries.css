@@ -8,3 +8,16 @@
     display: none;
   }
 }
+@media (max-width: 460px) {
+  .footer-container {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  .footer-logondesign,
+  .footer-categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

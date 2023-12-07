@@ -357,16 +357,9 @@ h5 {
   margin-top: 0.1rem;
 }
 .movie-info p {
-  /* background-color: var(--primary-light-color); */
   color: #ff9a7a;
-  /* padding: 0.2rem 0.5rem; */
-  /* border-radius: 0.4rem; */
 }
-/* .movie-rating {
-  display: flex;
-  align-items: center;
-  column-gap: 0.1rem;
-} */
+
 .rating-icon {
   color: yellow;
 }
