@@ -1,5 +1,6 @@
 @media (min-width: 801px) {
-  .mobile-menus {
+  .mobile-menus,
+  .mobile-menus--lists {
     display: none;
   }
 }

@@ -35,7 +35,6 @@ class Searchmovies extends Movieapp {
 
   _loadMore() {
     const searchSection = document.querySelector('.movie-search--section');
-    // this._getSearchedMovies('beforeend');
     // ======================
     window.addEventListener('scroll', e => {
       if (!getSearchResultEnd(searchSection)) return;

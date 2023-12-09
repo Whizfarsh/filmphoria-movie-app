@@ -11,8 +11,6 @@
 .search-movies-details {
   max-width: 100%;
   height: 20rem;
-  /* background-color: greenyellow; */
-  /* margin: 2rem 4rem; */
   position: relative;
   cursor: pointer;
 }
@@ -23,14 +21,12 @@
 }
 .search-movie-detail {
   width: 100%;
-  /* height: 30%; */
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 0.5rem 0.2rem;
   background-color: black;
   font-size: 0.9rem;
-  /* background: linear-gradient(to top, rgba(23, 29, 33, 1), transparent); */
 }
 .more-results {
   display: flex;

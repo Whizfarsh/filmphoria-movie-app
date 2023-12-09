@@ -100,7 +100,7 @@ export class Movieapp {
                     datas.vote_average
                   )} |
                 </p>
-                <p class="">${rendrGen.splice(0, 2).join(' , ')} |</p>
+                <p class="">${rendrGen.splice(0, 1).join(' , ')} |</p>
                 <p class="">${datas.media_type}</p>
               </div>
             </div>
@@ -127,7 +127,7 @@ export class Movieapp {
                 datas.vote_average
               )} |
             </p>
-            <p class="">${rendrGen.splice(0, 2).join(' , ')} |</p>
+            <p class="">${rendrGen.splice(0, 1).join(' , ')} |</p>
             <p class="">${datas.media_type}</p>
           </div>
         </div>
@@ -321,4 +321,14 @@ const movie = new Movieapp();
 // user profile
 document.querySelector('.users').addEventListener('click', () => {
   document.querySelector('.user-profile').classList.toggle('hidden');
+});
+
+// mobile menu handler
+document.querySelector('.mb-menu').addEventListener('click', () => {
+  document.querySelector('.mobile-menus--lists').style.transform =
+    'translateX(0rem)';
+  document.querySelector('.MDs-menu-close').style.transform = '30rem';
+});
+document.querySelector('.MDs-menu-close').addEventListener('click', () => {
+  document.querySelector('.mobile-menus--lists').style.transform = '';
 });
