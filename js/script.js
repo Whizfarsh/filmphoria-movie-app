@@ -21,6 +21,8 @@ export class Movieapp {
     this._showTrending();
     this.featuresMoviesTvs();
     this._mobileMenuToggles();
+    this._mobileMenu();
+    this._userProfile();
 
     movieSearchForm.forEach(inputElments => {
       if (inputElments.parentNode.classList.contains('hidden')) return;
@@ -316,21 +318,24 @@ export class Movieapp {
       }
     });
   }
+
+  // mobile menu handler
+  _mobileMenu() {
+    document.querySelector('.mb-menu').addEventListener('click', () => {
+      document.querySelector('.mobile-menus--lists').style.transform =
+        'translateX(0rem)';
+      document.querySelector('.MDs-menu-close').style.transform = '30rem';
+    });
+    document.querySelector('.MDs-menu-close').addEventListener('click', () => {
+      document.querySelector('.mobile-menus--lists').style.transform = '';
+    });
+  }
+
+  _userProfile() {
+    // user profile
+    document.querySelector('.users').addEventListener('click', () => {
+      document.querySelector('.user-profile').classList.toggle('hidden');
+    });
+  }
 }
 const movie = new Movieapp();
-
-// ==============
-// user profile
-document.querySelector('.users').addEventListener('click', () => {
-  document.querySelector('.user-profile').classList.toggle('hidden');
-});
-
-// mobile menu handler
-document.querySelector('.mb-menu').addEventListener('click', () => {
-  document.querySelector('.mobile-menus--lists').style.transform =
-    'translateX(0rem)';
-  document.querySelector('.MDs-menu-close').style.transform = '30rem';
-});
-document.querySelector('.MDs-menu-close').addEventListener('click', () => {
-  document.querySelector('.mobile-menus--lists').style.transform = '';
-});
