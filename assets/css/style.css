@@ -65,6 +65,7 @@ li {
   height: 90vh;
   max-width: 100%;
   position: relative;
+  overflow: hidden;
 }
 .main-header::after {
   content: '';
