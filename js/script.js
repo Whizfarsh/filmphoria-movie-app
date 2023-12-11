@@ -270,7 +270,8 @@ export class Movieapp {
   // show search box
   _showSearchForm() {
     if (!mobileSearchIcon) return;
-    mobileSearchIcon.addEventListener('click', () => {
+    mobileSearchIcon.addEventListener('click', e => {
+      e.preventDefault();
       document
         .querySelector('#mobile-search-icon')
         .closest('.ion-icon')
@@ -284,6 +285,7 @@ export class Movieapp {
   }
   _mobileMenuToggles() {
     document.addEventListener('click', e => {
+      e.preventDefault();
       const eParent = e.target.parentNode;
       const formInputSelection = mobileSearchIcon
         .closest('.mobile--menu')
