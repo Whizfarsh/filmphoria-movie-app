@@ -77,18 +77,6 @@ class Searchmovies extends Movieapp {
           src="${imgPath}${poster_path}"
           alt=""
         />
-        <div class="search-movie-detail">
-          <p class="movie-title">${title}</p>
-          <div class="movie-info">
-            <p class="movie-rating">
-              <ion-icon class="rating-icon" name="star"></ion-icon> ${Math.floor(
-                vote_average
-              )} |
-            </p>
-            <p class="">Comedy |</p>
-            <p class="">${media_type}</p>
-          </div>
-        </div>
       </div>
     `
     );
