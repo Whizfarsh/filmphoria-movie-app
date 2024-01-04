@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/mediaqueries.css" />
+    <link rel="stylesheet" href="../assets/css/search.css" />
+    <title>Details | filmphoria</title>
+  </head>
+  <body>
+    <header class="md-header">
+      <nav class="main-menu">
+        <p class="logos">Film<span class="logo">phoria</span></p>
+        <div class="menus">
+          <ul class="bgs-menu">
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#tvshows">TV Shows</a></li>
+            <li><a href="">Trending</a></li>
+          </ul>
+          <form class="movie-search">
+            <input class="search-input" type="text" placeholder="Search" />
+          </form>
+          <ion-icon
+            class="user-notification"
+            name="notifications-outline"
+          ></ion-icon>
+          <div class="users">
+            <!-- <div class="user-notification"> -->
+            <!-- </div> -->
+            <div class="user-image">
+              <img
+                class="user-img"
+                src="../assets//images/users/farsh.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menus">
+          <div class="mobile--menu">
+            <form class="movie-search hidden" id="mobile-search">
+              <input class="search-input" type="text" placeholder="Search" />
+            </form>
+            <ion-icon
+              class="ion-icon"
+              id="mobile-search-icon"
+              name="search-outline"
+            ></ion-icon>
+            <ion-icon class="ion-icon mb-menu" name="menu-outline"></ion-icon>
+          </div>
+        </div>
+      </nav>
+      <!-- mobile menus -->
+      <div class="overlays mobile-menus--lists">
+        <ion-icon class="MDs-menu-close" name="close-outline"></ion-icon>
+        <ul class="MDs-menus">
+          <li><a href="/">Home</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#tvshows">TV Shows</a></li>
+          <li><a href="">Trending</a></li>
+          <li><a href="">Edit Profile</a></li>
+          <li><a href="">Settings</a></li>
+          <li><a href="">Log out</a></li>
+        </ul>
+      </div>
+      <!-- user profile for big screen -->
+      <!-- overlays -->
+      <div class="overlays user-profile hidden">
+        <div class="user-menu">
+          <a href="">Edit profile</a>
+          <a href="">Settings</a>
+          <a href="">Log out</a>
+        </div>
+      </div>
+      <!-- --- -->
+    </header>
+    <section class="movie-details--section">
+      <div class="details-container">
+        <div class="movie-details-col">
+          <div class="movie-trailers">
+            <div class="main-trailer">
+            </div>
+            <div class="other-trailers"></div>
+          </div>
+          <div class="movie-title-options">
+           
+            </div>
+          </div>
+          <div class="movie-production-companies hidden">
+          </div>
+        </div>
+        <div class="movie-similars">
+          <div class="similar--movie-container">
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logondesign">
+          <p class="footer-logos">Film<span class="logo">phoria</span></p>
+          <p class="copyright">
+            &copy;2023
+            <a style="font-weight: 600" href="https://twitter.com/devfarsh"
+              >@devFarsh</a
+            >
+          </p>
+        </div>
+        <div class="footer-categories">
+          <h6>Categories</h6>
+          <ul>
+            <li><a href="">Action</a></li>
+            <li><a href="">Comedy</a></li>
+            <li><a href="">Horror</a></li>
+          </ul>
+        </div>
+        <div class="footer-socials">
+          <ul>
+            <li>
+              <a href=""
+                ><ion-icon class="footer-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href=""
+                ><ion-icon class="footer-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href=""
+                ><ion-icon class="footer-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a href=""
+                ><ion-icon class="footer-icon" name="logo-youtube"></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <script type="module" defer src="/js/search.js"></script> -->
+    <script type="module" defer src="/js/movie.js"></script>
+  </body>
+</html>
