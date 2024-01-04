@@ -6,29 +6,22 @@ import { imgPath } from './script.js';
 import { movieSearchForm } from './script.js';
 
 import { movieSearchInput } from './script.js';
-import { showsContainer } from './script.js';
-import { moviesDetails } from './script.js';
-import { genreNames } from './script.js';
-import { rendrGen } from './script.js';
-
-// ${rendrGen.splice(0, 2).join(' , ')}
-console.log(movieSearchInput);
 // DOMs
 const searchedQuery = document.getElementById('search-query');
 const searchResults = document.querySelector('.search-results');
 
 const movieSearchQuery = new URLSearchParams(window.location.search).get('q');
 
-movieSearchInput.value = movieSearchQuery;
-console.log(movieSearchInput.value);
-// movieSearchInput.value = movieSearchValue;
+if (!movieSearchQuery) window.location.href = '/';
 
 let page = 0;
 
 class Searchmovies extends Movieapp {
   constructor() {
     super();
-    movieSearchInput.value = movieSearchQuery;
+    movieSearchInput.forEach(inEls => {
+      inEls.value = movieSearchQuery;
+    });
     this._getSearchedMovies('afterbegin');
     this._loadMore();
   }
@@ -51,6 +44,7 @@ class Searchmovies extends Movieapp {
   }
 
   async _getSearchedMovies(positionRE) {
+    let fildID;
     page += 1;
     const searchedDatas = await this._getTrending(
       `https://api.themoviedb.org/3/search/multi?query=${movieSearchQuery}&page=${page}&api_key=${API_Key}`
@@ -59,14 +53,14 @@ class Searchmovies extends Movieapp {
     searchedDatas.results.forEach(datas => {
       this._searchHtmlRender(datas, positionRE);
     });
+    this._movieClickedOn(searchedDatas, 'search-movies-details');
   }
 
   //
   _searchHtmlRender(datas, positionResult) {
-    // console.log(datas);
     const titlecat = datas.media_type === 'movie' ? 'title' : 'name';
     const title = datas[titlecat];
-    const { poster_path, media_type, vote_average } = datas;
+    const { poster_path, media_type } = datas;
     if (media_type === 'person') return;
     searchResults.insertAdjacentHTML(
       `${positionResult}`,
