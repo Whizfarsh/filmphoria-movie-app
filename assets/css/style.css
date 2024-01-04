@@ -40,6 +40,18 @@ body {
   align-items: center;
   justify-content: center;
 }
+.btn {
+  color: #f3f3f3;
+  border: none;
+  cursor: pointer;
+}
+.btn-outline {
+  background: none;
+  border: 1px solid #333;
+}
+.btn--active {
+  background-color: var(--primary-deep-color);
+}
 .hidden {
   display: none;
   /* opacity: 0; */
@@ -348,7 +360,6 @@ h5 {
   height: 20rem;
   position: relative;
   cursor: pointer;
-  /* background-color: red; */
 }
 .movie-details {
   /* background: red; */
@@ -391,7 +402,7 @@ h5 {
 }
 
 .rating-icon {
-  color: yellow;
+  color: #ffca1a;
 }
 /* ------------ */
 
