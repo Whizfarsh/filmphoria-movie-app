@@ -251,7 +251,7 @@ export class Movieapp {
       `
     );
 
-    mainHeader.addEventListener('click', () => {
+    mainHeader.querySelector('.btn-play').addEventListener('click', () => {
       this._detailedInfo(
         featureData.results[selectRandom].id,
         featureData.results[selectRandom].media_type
