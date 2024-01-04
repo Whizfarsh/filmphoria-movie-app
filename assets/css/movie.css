@@ -1,0 +1,258 @@
+/* MOVIE DETAILS PAGE */
+.details-container {
+  max-width: 100%;
+  margin: 2rem 0;
+  padding: 0.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.movie-details-col {
+  flex: 0 0 80%;
+  padding: 1rem;
+}
+.movie-trailers {
+  position: relative;
+}
+/* .main-trailer {
+    position: relative;
+  } */
+.trailer-icon {
+  font-size: 5.2rem;
+  font-weight: 800;
+  color: white;
+}
+.other-trailers {
+  /* display: none; */
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  height: 10rem;
+  width: 35rem;
+  /* background-color: red; */
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  padding: 0 0.4rem;
+  transition: all 300ms ease-in;
+}
+.trailer {
+  background-color: white;
+  height: 80%;
+  width: 50%;
+  cursor: pointer;
+}
+.company-not-available {
+  max-width: 100%;
+  color: #ffeee9;
+}
+.not-available {
+  max-width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #20292f;
+  margin: 1rem 0;
+}
+.not-available p {
+  font-size: 1.8rem;
+  color: #ffeee9;
+}
+.movie-video {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  border-radius: 2rem 2rem 0rem 0rem;
+}
+.movie--options {
+  display: flex;
+  gap: 1.4rem;
+}
+.movie--options button {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* justify-content: space-between; */
+  font-size: 1.2rem;
+  /* width: 5rem; */
+}
+.movie--options button ion-icon {
+  font-size: 1.4rem;
+}
+.movie-title-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 24rem; */
+}
+.title--ratings {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  color: var(--secondary-light-color);
+}
+.title--ratings .title {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.title--ratings .genre {
+  font-size: 0.9rem;
+  color: #afb5b9;
+}
+.btn-movie-details {
+  border-radius: 1rem;
+}
+/* -- */
+.show--information {
+  margin-top: 1rem;
+  padding: 1.4rem;
+  display: flex;
+  column-gap: 0.7rem;
+}
+.overview--detail {
+  flex: 0 0 70%;
+  padding: 1rem;
+  background-color: #20292f;
+}
+.poster--basic-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.poster--basic-info img {
+  width: 10rem;
+  height: 12rem;
+  object-fit: cover;
+}
+.movie-genre--rating {
+  display: flex;
+  flex-direction: column;
+  color: #ffeee9;
+  /* align-items: center; */
+  /* gap: 0.5rem; */
+}
+.movie-genre--rating .rating span:nth-child(1) {
+  padding: 0.4rem 0.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+}
+.movie-genre--rating .genre {
+  margin: 1rem 0rem 0rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+#separate-dot {
+  color: white;
+  font-size: 1.2rem;
+}
+.other--details {
+  background-color: #20292f;
+  flex: 0 0 30%;
+  padding: 2rem;
+}
+.other--details h6 {
+  font-size: 1.3rem;
+}
+.other--details ul {
+  color: #ffeee9;
+  font-size: 1.2rem;
+}
+.other--details ul li {
+  margin-left: 2rem;
+  list-style: disc;
+}
+.other--details div {
+  margin-bottom: 0.8rem;
+}
+/*  */
+.info--details {
+  display: flex;
+  gap: 1rem;
+}
+
+.info--active {
+  border-bottom: 2px solid #ff8964;
+}
+.info--details li {
+  padding: 0.3rem;
+}
+/* --- */
+
+.movie--overview {
+  margin: 1.4rem auto;
+}
+.movie--overview h6 {
+  color: #f3f3f3;
+  font-size: 1.3rem;
+}
+.movie--overview p {
+  color: #ffeee9;
+  font-size: 0.9rem;
+}
+#movie--info {
+  color: #ff8964;
+  cursor: pointer;
+}
+
+.movie-production-companies {
+  display: flex;
+  gap: 1rem;
+}
+.comp-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.movie-production-companies p {
+  color: #f3f3f3;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.movie-production-companies .production-company {
+  margin: 0.3rem 0.2rem;
+  padding: 0.3rem;
+  background-color: antiquewhite;
+  width: 7rem;
+  height: 4rem;
+}
+
+/* similars */
+.movie-similars {
+  flex: 1 0 20%;
+  color: #f3f3f3;
+  overflow: hidden;
+}
+.similar--movie-container {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.similar-movie-details {
+  background-color: #20292f;
+  padding: 0.5rem 0.5rem 1.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.similar-movie-img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.similar-movies--details {
+  display: flex;
+  gap: 0.2rem;
+}
