@@ -60,6 +60,16 @@ export class Movieapp {
     this._showTrendingTvs();
   }
 
+  // convert movie duration to hours and minutes
+  _getHoursandMinutes(inMinutes) {
+    const theHour = Math.floor(inMinutes / 60);
+    const theMinutes = inMinutes % 60;
+
+    const timeDuration = `${theHour}hr ${theMinutes}min`;
+
+    return timeDuration;
+  }
+
   async _fetchWithRender(url, elementContainer, inputELfunction) {
     const data = await this._getTrending(url);
 
@@ -79,6 +89,13 @@ export class Movieapp {
       const html = inputELfunction(datas);
       if (!elementContainer) return;
       elementContainer.insertAdjacentHTML('afterbegin', html);
+
+      const selectedDetailElement =
+        elementContainer.querySelector('.movies-details');
+      selectedDetailElement.addEventListener('click', () => {
+        this._detailedInfo(datas.id, datas.media_type);
+      });
+
       this._showedMoviesHoverEffect();
     });
   }
@@ -233,6 +250,13 @@ export class Movieapp {
         </div>
       `
     );
+
+    mainHeader.addEventListener('click', () => {
+      this._detailedInfo(
+        featureData.results[selectRandom].id,
+        featureData.results[selectRandom].media_type
+      );
+    });
   }
 
   // scrolling container to left and right
@@ -262,11 +286,21 @@ export class Movieapp {
   async _movieSearched() {
     const movieSearchValue = movieSearchInput.value;
     console.log(movieSearchValue);
-    movieSearchInput.value = '';
+    // movieSearchInput.value = '';
+    this._searchedWindow(movieSearchValue);
+  }
 
-    window.location.href = `/p/search.html?q=${encodeURIComponent(
-      movieSearchValue
-    )}`;
+  // search redirection function
+  _searchedWindow(input) {
+    window.location.href = `../p/search.html?q=${encodeURIComponent(input)}`;
+  }
+
+  // show deails function
+  _detailedInfo(id, thetype) {
+    const newTab = window.open();
+    newTab.location.href = `../p/movie.html?fpm=${encodeURIComponent(
+      thetype
+    )}&fpf=${encodeURIComponent(id)}`;
   }
 
   // show search box
@@ -335,6 +369,21 @@ export class Movieapp {
     // user profile
     document.querySelector('.users').addEventListener('click', () => {
       document.querySelector('.user-profile').classList.toggle('hidden');
+    });
+  }
+
+  // movie clicked
+  _movieClickedOn(datas, elToQuery) {
+    const moviesDetails = document.querySelectorAll(`.${elToQuery}`);
+
+    // elToQuery = searchMoviesDetails;
+    moviesDetails.forEach((clickedFilms, i) => {
+      clickedFilms.addEventListener('click', () => {
+        const id = datas.results[i].id;
+        const mediaType = datas.results[i].media_type;
+        // console.log(id, mediaType);
+        this._detailedInfo(id, mediaType);
+      });
     });
   }
 }
