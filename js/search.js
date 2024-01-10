@@ -61,7 +61,7 @@ class Searchmovies extends Movieapp {
     const titlecat = datas.media_type === 'movie' ? 'title' : 'name';
     const title = datas[titlecat];
     const { poster_path, media_type } = datas;
-    if (media_type === 'person') return;
+    if (media_type === 'person' || !poster_path) return;
     searchResults.insertAdjacentHTML(
       `${positionResult}`,
       `
