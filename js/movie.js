@@ -244,7 +244,6 @@ class Movieinfo extends Movieapp {
   }
   _renderInformationTab(datas) {
     showInformation.innerHTML = '';
-    console.log(datas);
     let posterimage = datas.backdrop_path
       ? datas.backdrop_path
       : datas.poster_path;
@@ -334,7 +333,6 @@ class Movieinfo extends Movieapp {
     const movieCompanies = document.querySelector(
       '.movie-production-companies'
     );
-    console.log(datas);
     movieCompanies.innerHTML = '';
     if (datas.production_companies.length === 0) {
       renderNotAvailable(
