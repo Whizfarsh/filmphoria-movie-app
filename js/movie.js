@@ -274,12 +274,12 @@ class Movieinfo extends Movieapp {
       <div class="other--details">
         <div class="production-details">
           <div class="location">
-            <h6>Production Country(ies)</h6>
+            <h6 class="hidden p-countries">Production Country(ies)</h6>
             <ul class="location-list">
             </ul>
           </div>
           <div class="language">
-            <h6>Production Language(s)</h6>
+            <h6 class="hidden p-languages">Production Language(s)</h6>
             <ul class="language-list">
             </ul>
           </div>
@@ -296,19 +296,24 @@ class Movieinfo extends Movieapp {
     const locationList = document.querySelector('.location-list');
     const languageList = document.querySelector('.language-list');
 
-    if (!datas.production_countries || !datas.spoken_languages) return;
-    datas.production_countries.forEach(pcountries => {
-      locationList.insertAdjacentHTML(
-        'beforeend',
-        `<li>${pcountries.name}</li>`
-      );
-    });
-    datas.spoken_languages.forEach(plang => {
-      languageList.insertAdjacentHTML(
-        'beforeend',
-        `<li>${plang.english_name}</li>`
-      );
-    });
+    if (datas.production_countries.length > 0) {
+      document.querySelector('.p-countries').classList.remove('hidden');
+      datas.production_countries.forEach(pcountries => {
+        locationList.insertAdjacentHTML(
+          'beforeend',
+          `<li>${pcountries.name}</li>`
+        );
+      });
+    }
+    if (datas.spoken_languages.length > 0) {
+      document.querySelector('.p-languages').classList.remove('hidden');
+      datas.spoken_languages.forEach(plang => {
+        languageList.insertAdjacentHTML(
+          'beforeend',
+          `<li>${plang.english_name}</li>`
+        );
+      });
+    }
   }
 
   _rendergenres(datas) {
@@ -408,14 +413,9 @@ class Movieinfo extends Movieapp {
               alt=""
             />
             <div class="similar-movie-infos">
-              <p>${simVid[title]}</p>
+              <p id="m-title">${simVid[title]}</p>
               <div class="similar-movies--details">
-                <p>
-                  <ion-icon class="rating-icon" name="star"></ion-icon> ${simVid.vote_average.toFixed(
-                    1
-                  )} |
-                </p>
-                <p>${renderSimGen.splice(0, 2).join(', ')}</p>
+                <p id="m-genre">${renderSimGen.splice(0, 2).join(' | ')}</p>
                 
               </div>
             </div>

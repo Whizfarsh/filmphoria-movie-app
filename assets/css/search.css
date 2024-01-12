@@ -1,3 +1,8 @@
+.md-header {
+  position: relative;
+  overflow: hidden;
+}
+
 /* search */
 .search-results {
   display: grid;

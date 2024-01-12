@@ -35,10 +35,6 @@
   .other--details {
     flex-basis: 45% !important;
   }
-
-  .movie-similars {
-    overflow: auto !important;
-  }
 }
 
 @media (max-width: 56.25rem) {
@@ -54,7 +50,6 @@
   .rating {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     row-gap: 0.4rem;
     margin-bottom: -0.7rem;
   }
@@ -83,14 +78,9 @@
   }
   .similar--movie-container {
     flex-direction: row !important;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: flex-start;
-    /* gap: 1rem; */
     flex-wrap: wrap;
-  }
-  .movie-similars {
-    flex-basis: 20rem !important;
-    /* overflow: hidden !important; */
   }
   .other--details h6 {
     font-size: 1.1rem !important;
@@ -99,32 +89,43 @@
     font-size: 0.95rem;
   }
   .similar--movie-container {
-    height: 200px !important;
+    height: auto !important;
+    margin-bottom: -4rem;
   }
   .similar-movie-details {
-    flex-basis: content;
-    /* margin-right: auto; */
-    /* margin-right: auto; */
-    /* width: 120px !important; */
+    height: 200px !important;
+    width: 30% !important;
   }
 }
-
-@media (max-width: 46.9rem) {
+@media (max-width: 40.625rem) {
   .show--information {
     flex-direction: column;
     row-gap: 1rem;
+    padding: 0 !important;
   }
-  .similar--movie-container {
-    justify-content: flex-start !important;
-  }
-  .similar-movie-details:last-child {
-    margin-right: auto;
-  }
+}
+@media (max-width: 25rem) {
   .poster--basic-info {
     flex-direction: column;
-    justify-content: left;
   }
   .poster--basic-info img {
     align-self: flex-start;
+    width: 100% !important;
+  }
+  .movie-genre--rating .genre {
+    font-size: 1.2rem !important;
+  }
+  .info--details {
+    margin-top: 1rem;
+    gap: 0.1rem !important;
+  }
+  .movie-genre--rating p {
+    margin-bottom: 0.4rem !important;
+  }
+  .rating {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
+/* =================== */
