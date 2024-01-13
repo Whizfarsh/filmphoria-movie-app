@@ -1,6 +1,12 @@
-.md-header {
+body {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.md-header {
+  /* overflow: hidden; */
+  /* position: relative; */
+  /* z-index: 1; */
 }
 
 /* search */

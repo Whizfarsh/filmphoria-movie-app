@@ -16,12 +16,14 @@
   <body>
     <header class="main-header">
       <nav class="main-menu" id="main">
-        <p class="logos">Film<span class="logo">phoria</span></p>
+        <a href="/index.html"
+          ><p class="logos">Film<span class="logo">phoria</span></p></a
+        >
         <div class="menus">
           <ul class="bgs-menu">
-            <li><a href="#movies">Movies</a></li>
-            <li><a href="#tvshows">TV Shows</a></li>
-            <li><a href="">Trending</a></li>
+            <li><a href="/index.html#movies">Movies</a></li>
+            <li><a href="/index.html#tvshows">TV Shows</a></li>
+            <li><a href="/index.html#trending-all">Trending</a></li>
           </ul>
           <form class="movie-search">
             <input class="search-input" type="text" placeholder="Search" />
@@ -36,9 +38,17 @@
             <div class="user-image">
               <img
                 class="user-img"
-                src="../assets//images/users/farsh.jpg"
+                src="../assets/images/users/farsh.jpg"
                 alt=""
               />
+            </div>
+            <!-- user profile for big screen -->
+            <div class="overlays user-profile hidden">
+              <div class="user-menu">
+                <a href="">Edit profile</a>
+                <a href="">Settings</a>
+                <a href="">Log out</a>
+              </div>
             </div>
           </div>
         </div>
@@ -61,23 +71,15 @@
       <div class="overlays mobile-menus--lists">
         <ion-icon class="MDs-menu-close" name="close-outline"></ion-icon>
         <ul class="MDs-menus">
-          <li><a href="/">Home</a></li>
-          <li><a href="#movies">Movies</a></li>
-          <li><a href="#tvshows">TV Shows</a></li>
-          <li><a href="">Trending</a></li>
+          <li><a href="/index.html#movies">Movies</a></li>
+          <li><a href="/index.html#tvshows">TV Shows</a></li>
+          <li><a href="/index.html#trending-all">Trending</a></li>
           <li><a href="">Edit Profile</a></li>
           <li><a href="">Settings</a></li>
           <li><a href="">Log out</a></li>
         </ul>
       </div>
-      <!-- user profile for big screen -->
-      <div class="overlays user-profile hidden">
-        <div class="user-menu">
-          <a href="">Edit profile</a>
-          <a href="">Settings</a>
-          <a href="">Log out</a>
-        </div>
-      </div>
+
       <!-- --- -->
       <div class="features-movie">
         <div class="feature-movie"></div>

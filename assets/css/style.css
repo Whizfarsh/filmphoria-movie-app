@@ -162,6 +162,7 @@ li {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  /* position: relative; */
 }
 .user-notification {
   font-size: 1.2rem;
@@ -202,7 +203,8 @@ li {
   top: 0;
   right: 0;
   transform: translateX(30rem);
-  transition: transform 700ms ease-in;
+  display: none;
+  transition: all 300ms ease-in;
 }
 .MDs-menu-close {
   padding: 0.6rem;

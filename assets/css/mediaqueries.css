@@ -103,6 +103,9 @@
     row-gap: 1rem;
     padding: 0 !important;
   }
+  .details-container {
+    padding: 0.5rem 1rem !important;
+  }
 }
 @media (max-width: 25rem) {
   .poster--basic-info {

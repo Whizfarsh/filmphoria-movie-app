@@ -12,6 +12,7 @@ export const movieDetails = document.querySelectorAll('.movie-details');
 export const movieSearchForm = document.querySelectorAll('.movie-search');
 export let movieSearchInput = document.querySelectorAll('.search-input');
 const mobileSearchIcon = document.querySelector('#mobile-search-icon');
+const userEL = document.querySelectorAll('.users');
 
 export let genreNames;
 export let rendrGen;
@@ -358,17 +359,30 @@ export class Movieapp {
     document.querySelector('.mb-menu').addEventListener('click', () => {
       document.querySelector('.mobile-menus--lists').style.transform =
         'translateX(0rem)';
-      document.querySelector('.MDs-menu-close').style.transform = '30rem';
+      document.querySelector('.mobile-menus--lists').style.display = 'block';
+      // document.querySelector('.MDs-menu-close').style.transform = '30rem';
     });
     document.querySelector('.MDs-menu-close').addEventListener('click', () => {
       document.querySelector('.mobile-menus--lists').style.transform = '';
+      document.querySelector('.mobile-menus--lists').style.display = 'none';
     });
   }
 
   _userProfile() {
     // user profile
-    document.querySelector('.users').addEventListener('click', () => {
-      document.querySelector('.user-profile').classList.toggle('hidden');
+    // userEL.forEach(els => {
+    //   els.addEventListener('click', () => {
+    //     // console.log('clicked');
+    //     console.log(document.querySelector('.user-profile'));
+    //     document.querySelector('.user-profile').classList.toggle('hidden');
+    //   });
+    // });
+    document.body.querySelector('.users').addEventListener('click', e => {
+      console.log(e.target.closest('.users'));
+      // if (e.target.contains('.users')) {
+      // document.querySelector('.user-profile').classList.toggle('hidden');
+      // console.error(error);
+      // }
     });
   }
 
@@ -387,4 +401,8 @@ export class Movieapp {
     });
   }
 }
-const movie = new Movieapp();
+// const movie = new Movieapp();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const movie = new Movieapp();
+});
